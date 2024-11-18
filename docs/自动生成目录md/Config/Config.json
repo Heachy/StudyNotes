@@ -1,0 +1,15 @@
+{
+  "HomePath": "E:\\java\\note\\StudyNotes\\docs\\",
+  "DisableGenerateReadmeFile": false,
+  "IgnoreFile": [
+    "_navbar.md",
+    "_coverpage.md"
+  ],
+  "IgnoreDir": [
+    "_media",
+    "自动生成目录md"
+  ],
+  "IgnoreDirNameContain": [
+    ".assets"
+  ]
+}
