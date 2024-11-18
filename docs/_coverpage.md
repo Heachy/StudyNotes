@@ -4,12 +4,11 @@
 
 # 学习文档 <small>^_^</small>
 
-> 一个神奇的文档浏览网站。
+> Heachy的学习笔记记录浏览网站。
 
 - 简单、易懂(大概吧)
-- 无需太多繁琐的步骤
-- 众多内容
+- 众多内容 有项目、框架、中间件等
 
 [GitHub](https://github.com/Heachy/StudyNotes)
-[开始阅读](#学习记录)
+[开始阅读](#README)
 
