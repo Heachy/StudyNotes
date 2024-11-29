@@ -984,3 +984,78 @@ connection.close(); // 关闭连接
 ```
 
 - 释放数据库连接资源。
+
+# 涉及到的SQL
+
+```sql
+
+CREATE TABLE IF NOT EXISTS `student`(
+`id` INT NOT NULL AUTO_INCREMENT COMMENT '学生id',
+`name` VARCHAR(10) NOT NULL DEFAULT '匿名' COMMENT '学生姓名',
+`gradeid` INT NOT NULL COMMENT '学生年级',
+`address` VARCHAR(100) NOT NULL COMMENT '学生地址',
+PRIMARY KEY (`id`)
+)ENGINE=INNODB DEFAULT CHARSET=utf8
+
+
+INSERT INTO `student`(`address`,`gradeid`) VALUE ('huian','102')
+
+INSERT INTO `student`(`address`,`gradeid`) VALUE ('huian','103')
+
+INSERT INTO `student`(`address`,`gradeid`) VALUE ('huian','104')
+
+UPDATE `student` SET `name` ='张三' WHERE id=1
+
+UPDATE `student` SET `name`='李四',`gradeid`=109 WHERE address='sadasd'&&id=2
+
+DELETE FROM `student`
+
+TRUNCATE TABLE `student`
+
+SELECT * FROM `student` 
+
+SELECT `id`,`name` FROM `student`
+
+SELECT `id` AS 学号 ,`name` AS 学生姓名 FROM `student`
+
+SELECT CONCAT('姓名：',`name`) AS 学生姓名  FROM `student`
+
+SELECT DISTINCT `gradeid` AS 不重复的id FROM `student`
+
+SELECT VERSION()
+
+SELECT 100*3-1 AS 计算结果
+
+SELECT `id` AS 学生id ,`gradeid`-1 AS 学生年级 FROM `student`
+
+SELECT `id` AS 学生id ,`gradeid`AS 学生年级 FROM `student` WHERE `gradeid`=103
+
+SELECT `id` AS 学生id,`gradeid` AS 学生年级 FROM `student` 
+WHERE `gradeid` LIKE'%3'
+
+SELECT `id` AS 学生id,`gradeid` AS 学生年级 FROM `student` 
+WHERE `gradeid` IN (102,104)
+
+
+CREATE TABLE `category`(
+`categoryid` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主题id',
+`pid` INT NOT NULL COMMENT '父id',
+`categoryName` VARCHAR(100) NOT NULL COMMENT '主题名字',
+PRIMARY KEY (`categoryid`)
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+INSERT INTO `category` (`categoryid`,`pid`,`categoryName`)
+VALUE ('2','1','信息技术'),
+('3','1','软件开发'),
+('4','3','数据库'),
+('5','1','美术设计'),
+('6','3','web开发'),
+('7','5','ps技术'),
+('8','2','办公信息');
+
+
+SELECT a.`categoryName` AS 父类名,b.`categoryName` AS 子类名
+FROM `category` AS a,`category` AS b
+WHERE b.`pid`=a.`categoryid`
+```
+
