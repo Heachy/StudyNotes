@@ -26,5 +26,7 @@
   - [通天代](项目/通天代.md)
   - [JavaReedSolomon](项目/JavaReedSolomon.md)
 - [git](git/)
+  - [Git操作](git/git操作.md)
+  - [Action](git/action.md)
 - [实习](实习/)
   - [中电福富](实习/中电福富.md)
