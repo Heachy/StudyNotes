@@ -25,6 +25,7 @@
   - [对象存储系统](项目/对象存储系统.md)
   - [通天代](项目/通天代.md)
   - [JavaReedSolomon](项目/JavaReedSolomon.md)
+  - [项目收获](项目/项目收获.md)
 - [git](git/)
   - [Git操作](git/git操作.md)
   - [Action](git/action.md)

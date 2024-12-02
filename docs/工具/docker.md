@@ -199,3 +199,105 @@ ENTRYPOINT ["java","-jar","/helloworld.jar"]
 
 
 
+# 初级链接
+
+```shell
+[Service]
+Type=notify
+# the default is not to use systemd for cgroups because the delegate issues still
+# exists and systemd currently does not support the cgroup feature set required
+# for containers run by docker
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375
+ExecReload=/bin/kill -s HUP $MAINPID
+TimeoutSec=0
+RestartSec=2
+Restart=always
+```
+
+路径是/lib/systemd/system/docker.service
+
+修改里面的`ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H`就可以让idea链接上docker
+
+- 修改完后需要重新加载配置，和重启docker
+
+  ```shell
+  systemctl daemon-reload
+  systemctl restart docker
+  ```
+
+# 证书链接
+
+docker.service的配置
+
+```shell
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock \
+            --tlsverify \
+            --tlscacert=/etc/docker/certs/ca.pem \
+            --tlscert=/etc/docker/certs/server-cert.pem \
+            --tlskey=/etc/docker/certs/server-key.pem \
+            -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
+```
+
+证书：
+
+/etc/docker/create_cert.sh
+
+```sh
+#!/bin/bash
+#相关配置信息
+SERVER="xxx"  # 服务器Ip地址
+PASSWORD="xxx" # 登录密码
+COUNTRY="CN"
+STATE="fujian"
+CITY="fuzhou"
+ORGANIZATION="haechi"
+ORGANIZATIONAL_UNIT="product"
+EMAIL="2582085906@qq.com"
+ 
+###开始生成文件###
+echo "开始生成文件"
+ 
+mkdir -pv /etc/docker/certs
+ 
+#切换到生产密钥的目录
+cd /etc/docker/certs 
+#生成ca私钥(使用aes256加密)
+openssl genrsa -aes256 -passout pass:$PASSWORD  -out ca-key.pem 4096
+#生成ca证书，填写配置信息
+openssl req -new -x509 -passin "pass:$PASSWORD" -days 3650 -key ca-key.pem -sha256 -out ca.pem -subj "/C=$COUNTRY/ST=$STATE/L=$CITY/O=$ORGANIZATION/OU=$ORGANIZATIONAL_UNIT/CN=$SERVER/emailAddress=$EMAIL"
+ 
+#生成server证书私钥文件
+openssl genrsa -out server-key.pem 4096
+#生成server证书请求文件
+openssl req -subj "/CN=$SERVER" -new -key server-key.pem -out server.csr
+ 
+sh -c 'echo subjectAltName = IP:0.0.0.0,IP:${服务器Ip地址},IP:127.0.0.1 >> extfile.cnf'
+sh -c 'echo extendedKeyUsage = serverAuth >> extfile.cnf'
+ 
+#使用CA证书及CA密钥以及上面的server证书请求文件进行签发，生成server自签证书
+openssl x509 -req -days 3650 -in server.csr -CA ca.pem -CAkey ca-key.pem -passin "pass:$PASSWORD" -CAcreateserial  -out server-cert.pem -extfile extfile.cnf
+ 
+#生成client证书RSA私钥文件
+openssl genrsa -out key.pem 4096
+#生成client证书请求文件
+openssl req -subj '/CN=${服务器Ip地址}' -new -key key.pem -out client.csr
+ 
+sh -c 'echo "extendedKeyUsage=clientAuth" > extfile-client.cnf'
+#生成client自签证书（根据上面的client私钥文件、client证书请求文件生成）
+openssl x509 -req -days 3650 -in client.csr -CA ca.pem -CAkey ca-key.pem  -passin "pass:$PASSWORD" -CAcreateserial -out cert.pem  -extfile extfile-client.cnf
+ 
+#更改密钥权限
+chmod 0400 ca-key.pem key.pem server-key.pem
+#更改密钥权限
+chmod 0444 ca.pem server-cert.pem cert.pem
+#删除无用文件
+rm client.csr server.csr
+ 
+echo "生成文件完成"
+###生成结束###
+```
+
+- 运行脚本`sh create_cert.sh`
+- 接着IDEA配置
+  - 选择tcp套字   url:https://服务器Ip地址:2375
+  - 证书文件夹    D:\IDEA\docker\certs     不用指定那个证书，就是生成的包含全部证书的文件夹
