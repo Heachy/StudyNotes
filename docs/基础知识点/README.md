@@ -1,9 +1,77 @@
-# 基础知识点
+# 基础知识点概览
 
-Welcome to the StudyNotes repository!
+> 本文档提供了计算机科学领域中几个核心基础知识点的概览，包括注解和反射、多线程、网络编程、SQL语句以及Linux系统。这些知识点是理解和掌握软件开发、系统设计和数据库管理的基石。
 
-This repository contains various study materials and notes on fundamental concepts in Java programming.
+**目录**
 
-Feel free to explore the different directories and files to find the information you need.
+1. [注解和反射](基础知识点/注解和反射)
+2. [多线程](基础知识点/多线程)
+3. [网络编程](基础知识点/网络编程)
+4. [SQL语句](基础知识点/SQL)
+5. [Linux系统](基础知识点/Linux)
 
-Happy learning!
+**注解和反射**
+
+**注解（Annotation）**
+
+- 注解是Java从JDK5.0开始引入的一种元数据形式，用于为代码提供额外的信息。
+- 注解可以应用于包、类、方法、属性等，并且可以通过反射机制被读取。
+- 常用注解包括`@Override`、`@Deprecated`、`@SuppressWarnings`等。
+
+**反射（Reflection）**
+
+- 反射是Java中允许程序在运行时访问和操作类、接口、字段和方法的机制。
+- 通过反射，可以动态地创建对象、调用方法、访问字段等，即使这些类和成员在编译时未知。
+- 反射的主要类是`java.lang.Class`，每个类都有一个对应的`Class`对象。
+
+**多线程**
+
+**线程基础**
+
+- 多线程编程允许程序同时执行多个任务，提高了程序的并发性和效率。
+- Java中通过实现`Runnable`接口或继承`Thread`类来创建线程。
+- 线程的生命周期包括新建、就绪、运行、阻塞和死亡状态。
+
+**线程同步**
+
+- 多线程环境下，共享资源的访问需要同步控制以避免数据不一致和竞态条件。
+- `synchronized`关键字和`ReentrantLock`类是Java中常用的同步机制。
+- `wait()`和`notify()`方法用于线程间的协调。
+
+**网络编程**
+
+**TCP/IP模型**
+
+- 网络编程基于TCP/IP模型，该模型包括应用层、传输层、网络层和数据链路层。
+- TCP提供可靠的、面向连接的通信服务，而UDP提供无连接的、尽最大努力交付的服务。
+
+**Socket编程**
+
+- Socket是网络通信的端点，Java中使用`java.net.Socket`类进行Socket编程。
+- 客户端和服务器通过Socket连接，进行数据的发送和接收。
+
+**SQL语句**
+
+**数据库操作**
+
+- SQL（Structured Query Language）是用于管理和操作关系数据库的标准语言。
+- 基本操作包括数据查询（SELECT）、数据插入（INSERT）、数据更新（UPDATE）和数据删除（DELETE）。
+
+**事务处理**
+
+- 数据库事务保证操作的原子性、一致性、隔离性和持久性（ACID）。
+- 事务通过`BEGIN TRANSACTION`开始，并通过`COMMIT`或`ROLLBACK`结束。
+
+**Linux系统**
+
+**文件系统**
+
+- Linux文件系统层次结构包括`/bin`、`/etc`、`/home`、`/var`等目录，每个目录有特定的用途。
+- 常用命令包括`ls`、`cd`、`pwd`、`mkdir`、`rmdir`、`cp`、`rm`和`mv`。
+
+**系统管理**
+
+- Linux提供了一系列命令行工具进行系统管理，如`ifconfig`、`netstat`、`ps`、`top`、`kill`等。
+- 用户和权限管理通过`useradd`、`userdel`、`usermod`、`chmod`、`chown`等命令实现。
+
+以上概览提供了每个领域的基础知识点，为进一步深入学习和实践打下坚实的基础。

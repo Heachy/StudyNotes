@@ -1,14 +1,53 @@
 # README
 
-Welcome to the StudyNotes repository!
+> 欢迎来到这个全面的学习文档，这里汇集了从基础知识点到前沿技术的学习资料，旨在帮助开发者和学习者系统地掌握软件开发的各个方面。
 
-This repository contains various study materials and notes on fundamental concepts in Java programming.
+## [基础知识点](基础知识点/)
 
-Feel free to explore the different directories and files to find the information you need.
+- **编程语言基础**：包括但不限于 Java、Python、C++ 等语言的核心概念和语法。
+- **数据结构与算法**：基本数据结构（如链表、树、图）和算法（如排序、查找）的实现与应用。
+- **数据库原理**：关系型数据库和非关系型数据库的基础知识，包括 SQL 和 NoSQL 数据库。
 
-Happy learning!
-- [实习](实习/)
-- [框架](框架/)
-- [中间件](中间件/)
-- [项目](项目/)
-- [git](git/)
+## [框架](框架/)
+
+- **Spring Boot**：用于创建独立、生产级的基于 Spring 的应用程序。
+- **Vue.js**：构建用户界面的渐进式框架。
+- **React**：用于构建用户界面的 JavaScript 库。
+
+## [中间件](中间件/)
+
+- **Redis**：开源的内存中数据结构存储系统，用作数据库、缓存和消息传递系统。
+- **RabbitMQ**：开源的消息代理和队列服务器。
+- **Nacos**：服务发现和管理平台，用于动态服务配置和管理。
+
+## [分布式系统](分布式/)
+
+- **分布式架构**：涉及分布式系统的基本概念、设计模式和案例分析。
+- **Docker & Kubernetes**：容器化技术与容器编排工具，用于构建、部署和管理容器化应用程序。
+
+## [前端开发](前端)
+
+- **HTML/CSS/JavaScript**：前端开发的核心技术，包括 HTML 标记语言、CSS 样式表和 JavaScript 编程语言。
+- **前端框架**：如 React、Vue 和 Angular，用于构建交互式用户界面。
+
+## [工具](工具/)
+
+- **Git**：分布式版本控制系统，用于跟踪代码变更历史。
+- **Docker**：用于开发、打包和运行应用程序的容器化平台。
+- **IDEs & Editors**：集成开发环境和文本编辑器，如 IntelliJ IDEA、VSCode 等。
+
+## [项目](项目/)
+
+- **实际项目案例**：包括各种类型的项目，如 Web 应用、移动应用和后端服务，涉及从设计到部署的全过程。
+
+## [Git](git/)
+
+- **Git 操作**：Git 的基本操作和最佳实践，包括初始化仓库、分支管理、代码提交和合并等。
+
+## [实习](实习/)
+
+- **实习经验分享**：记录实习期间的工作经验和学习心得，涵盖技术实践和职业发展。
+
+## [大模型](大模型/)
+
+- **大模型学习笔记**：记录大模型相关的学习笔记、关键概念、技术要点以及实践经验。
