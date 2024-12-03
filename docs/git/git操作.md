@@ -45,7 +45,7 @@ cd fastgithub_linux-x64    #进入到FastGithub文件夹下
 
 - 如果不能运行啥的，把对应文件的权限开起来
 
-- ![1696865329538](E:/java/note/StudyNotes/docs/git/git%E6%93%8D%E4%BD%9C.assets/1696865329538.png)
+- ![1696865329538](./git操作.assets/1696865329538.png)
 
 - 进入到这个目录下
 
@@ -170,7 +170,7 @@ vscode中push时，发生以下情况
 
 **无法推送refs到远端**
 
-![image-20241201205204229](E:/java/note/StudyNotes/docs/git/git%E6%93%8D%E4%BD%9C.assets/image-20241201205204229.png)
+![image-20241201205204229](./git操作.assets/image-20241201205204229.png)
 
 - 命令行报错
 

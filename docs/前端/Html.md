@@ -1,6 +1,6 @@
 # Html
 
-#  `<a>` 标签使用示例
+#  a 标签使用示例
 
 > a标签
 > href：必填，表示要跳转到那个页面
@@ -891,6 +891,13 @@ sw-resize
     <link REL="SHORTCUT ICON"href="http:///happyisland.126.com/icon.ico";>
     如果访问者的浏览器是IE5.0，就不需加任何代码，只要将图标文件上传到网站的根目录下即可。
     1. META标签里的代码是什么意思？
+    2. ```
+       <meta http-equiv="refresh" content="10; url=http://www.hkiwc.com">
+       ```
+    
+       
+    3. 
+       这行较为实用，能于预定秒数内自动转到指定网址。原代码中 10 表示 10秒。
 
 <META>是放于<HEAD>与</HEAD>之间的标记.以下是我总结它在网页中最常见的几种。
 <meta name="Keywords" content="图片, 新闻, 音乐, 软件">
@@ -900,8 +907,6 @@ sw-resize
 设定这是 HTML 文件及其编码语系，简体中文网页使用charset=gb2312，繁体中文使用charset=big5，或者不设编码也可，纯英文网页建议使用 iso-8859-1。
 <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
 这只表示该网页由什么编辑器写的。
-<meta http-equiv="refresh" content="10; url=http://www.hkiwc.com">
-这行较为实用，能于预定秒数内自动转到指定网址。原代码中 10 表示 10秒。
 2. 怎么改变滚动条的颜色，只有ie5.5版本以上才能支持。
    这是使用CSS语言，在次说明一下，它和我的浏览器版本有一定的关系。
    scrollbar-arrow-color：上下按钮上三角箭头的颜色。
@@ -913,6 +918,7 @@ sw-resize
    scrollbar-track-color:#99CC33;
    scrollbar-3dlight-color:#A8CBF1;
    代码如下：
+
 
 <style>
 <!--
