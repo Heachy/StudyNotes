@@ -301,3 +301,24 @@ echo "生成文件完成"
 - 接着IDEA配置
   - 选择tcp套字   url:https://服务器Ip地址:2375
   - 证书文件夹    D:\IDEA\docker\certs     不用指定那个证书，就是生成的包含全部证书的文件夹
+
+# 查看日志
+
+```bash
+docker logs 容器id/名称
+```
+
+带行数配置
+
+```bash
+docker logs --tail 100 --follow --timestamps mysql-replica
+```
+
+查看log文件存放位置，有的时候在命令行会显示不完全
+
+```bash
+ docker inspect mysql-replica
+ # 然后查看里面的logPath存放路径
+ # 一般是/var/lib/docker/containers/容器id/容器id-json.log
+```
+
