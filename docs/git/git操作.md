@@ -180,3 +180,7 @@ error: failed to push some refs to 'github.com:Heachy/StudyNotes.git'
 ```
 
 原因，提交的更改中有不能提交的东西，比如什么秘钥，或者什么token之类的东西，需要检查
+
+# 分支命名
+
+![分支规范](./git操作.assets/%E5%88%86%E6%94%AF%E8%A7%84%E8%8C%83.jpg)
